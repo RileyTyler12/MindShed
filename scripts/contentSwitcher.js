@@ -9,6 +9,12 @@ import { aboutContent } from './content/dashboard_about.js';
 //Setup variables
 let currentContent = "";
 let dashboardContainer = document.getElementById("dashboard"); //Get dashboard container element
+if (dashboardContainer) {
+    dashboardContainer.remove(); //remove old dashboard container (this is mostly so everything is reloaded and animations play correctly for now)
+}
+dashboardContainer = document.createElement("div"); //create new dashboard div
+dashboardContainer.id = "dashboard";
+
 
 async function changeContent(contentName) {
     try {
@@ -23,7 +29,7 @@ async function changeContent(contentName) {
                     currentContent = contentName;
                     break;
                 case "todoList":
-                    dashboardContainer.innerHTML = await todoListContent.getContent();//Get welcome content and display it in the dashboard.
+                    dashboardContainer.innerHTML = await todoListContent.getContent();//Get todoList content and display it in the dashboard.
                     
                     //add helper scripts to html.
                     todoListContent.addHelpers(dashboardContainer);
@@ -31,13 +37,15 @@ async function changeContent(contentName) {
                     currentContent = contentName;
                     break;
                 case "about":
-                    dashboardContainer.innerHTML = await aboutContent.getContent();//Get welcome content and display it in the dashboard.
+                    dashboardContainer.innerHTML = await aboutContent.getContent();//Get about content and display it in the dashboard.
                     currentContent = contentName;
                     break;
                 default:
                     dashboardContainer.innerHTML = '<p>There was an error getting the content.</p>';
                     break;
             }
+            
+            document.getElementById("main-container").appendChild(dashboardContainer);
 
             savePreviouslyUsedContentSection();
         }
