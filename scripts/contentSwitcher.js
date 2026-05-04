@@ -38,6 +38,8 @@ async function changeContent(contentName) {
                     dashboardContainer.innerHTML = '<p>There was an error getting the content.</p>';
                     break;
             }
+
+            savePreviouslyUsedContentSection();
         }
         else {
             console.log("Page already selected.")
@@ -48,7 +50,18 @@ async function changeContent(contentName) {
     }     
 }
 
+function savePreviouslyUsedContentSection() {
+    localStorage.setItem("mindshed-previousContentSection", currentContent);
+    console.log("Last used content section saved to local storage.")
+}
+
+//Page Init
 window.changeContent = changeContent;
 
-//Open welcome content to start
-changeContent("welcome");
+if (localStorage.getItem("mindshed-previousContentSection") !== null) {
+    changeContent(localStorage.getItem("mindshed-previousContentSection"));
+}
+else {
+    //Open welcome content to start
+    changeContent("welcome");
+}
