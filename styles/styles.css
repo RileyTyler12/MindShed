@@ -1,10 +1,10 @@
-/* Keyframes for a graceful entrance (used on main elements like cards) */
+/* Keyframes for graceful entrance */
 @keyframes fadeInSlideUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Keyframes for gentle appearance of dynamic list items */
+/* Keyframes for gentle list item appearance */
 @keyframes listItemFadeIn {
     from { opacity: 0; transform: translateX(-15px); }
     to { opacity: 1; transform: translateX(0); }
@@ -18,31 +18,29 @@
     box-sizing: border-box;
 }
 
-/* Standard Reset (Clears default margins, paddings, and list styles) */
 html {
     font-size: 100%;
 }
 
-body,
-h1, h2, h3, p, div, ul, li, form, input, button {
+body, h1, h2, h3, p, div, ul, li, form, input, button {
     margin: 0;
     padding: 0;
     line-height: 1.6;
 }
 
-/* Define the global font stack */
+/* Global font stack definition */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Configuration & Theming (Variables) */
 :root {
-    /* Color Palette */
-    --color-deepest-bg: #221e22; /* Primary background/Shadow base */
-    --color-dark-base: #31263e;  /* Main structural color */
-    --color-glass-tint: #44355b; /* Purple tint for glass elements */
-    --color-accent-yellow: #eca72c; /* Accent 1 (Highlight) */
-    --color-accent-orange: #ee5622;/* Accent 2 (Call to Action) */
+    /* Color Palette based on coolors.co/edd3c4-c8adc0-7765e3-3b60e4-080708 */
+    --color-deepest-bg: #080708; /* Primary background/Shadow base (Near Black) */
+    --color-dark-base: #c8adc0;  /* Main structural color (Muted Grey/Mauve) */
+    --color-glass-tint: #7765e3; /* Purple tint for glass elements (Lavender) */
+    --color-accent-yellow: #edd3c4; /* Accent 1 (Highlight - Light Beige) */
+    --color-accent-orange: #3b60e4;/* Accent 2 (Call to Action - Vibrant Blue) */
 
     /* Design System Tokens */
     --radius-soft: 20px;       /* Default rounded corners */
@@ -50,13 +48,13 @@ body {
     --blur-level-strong: 35px; /* Stronger blur for main containers */
 
     /* Interaction Timing */
-    --transition-speed: 0.4s cubic-bezier(0.2, 1, 0.3, 1); /* Smooth, organic timing function */
+    --transition-speed: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 /* Base Layout & Typography */
 body {
     background-color: var(--color-deepest-bg);
-    color: #e4e7eb;
+    color: #e4e7eb; /* Retaining original light text color for contrast */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -66,13 +64,13 @@ body {
 
     /* Subtle layered background gradient */
     background-image: 
-        radial-gradient(circle at top left, rgba(68, 53, 91, 0.07), transparent 45%),
-        radial-gradient(circle at bottom right, rgba(234, 167, 24, 0.04), transparent 60%);
+        radial-gradient(circle at top left, rgba(119, 101, 227, 0.08), transparent 45%), /* Glass tint for subtle lift */
+        radial-gradient(circle at bottom right, rgba(60, 96, 228, 0.04), transparent 60%); /* Blue accent for subtle lift */
 }
 
 header {
-    position: sticky; /* Stays fixed at top */
-    top: 0;           /* Edge positioning */
+    position: sticky;
+    top: 0;
     width: 100%;
     z-index: 1000;
 }
@@ -84,7 +82,7 @@ hr {
 /* Utility class to center content */
 .container {
     width: 90%;
-    max-width: 1200px; /* Max width for large screens */
+    max-width: 1200px;
 }
 
 
@@ -95,19 +93,19 @@ hr {
     /* Core Glassmorphism Formula */
     background: rgba(40, 30, 34, 0.2); /* Semi-transparent base color */
     backdrop-filter: blur(var(--blur-level-strong));
-    -webkit-backdrop-filter: blur(var(--blur-level-strong)); /* Safari support */
+    -webkit-backdrop-filter: blur(var(--blur-level-strong));
 
     border-radius: var(--radius-soft);
     /* Subtle border using the glass tint color */
-    border: 1px solid rgba(68, 53, 91, 0.25); 
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4); /* Floating shadow effect */
+    border: 1px solid rgba(119, 101, 227, 0.25); 
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6); /* Floating shadow effect */
 
     /* Interaction transition */
     transition: all var(--transition-speed) ease-out; 
     
-    /* Apply entrance animation to main container elements on page load */
+    /* Entrance animation on page load */
     animation: fadeInSlideUp 1s ease-out forwards;
-    opacity: 0; /* Start hidden for the animation to work */
+    opacity: 0; 
 
     text-align: center;
     padding: 1%;
@@ -116,17 +114,17 @@ hr {
     max-width: 100vw;
 }
 
-
 .ui-card:hover {
+    transition: all var(--transition-speed) ease-in; /* Corrected transition for hover state */
     transform: translateY(-5px); /* Lift effect */
-    box-shadow: 0 12px 45px rgba(68, 53, 91, 0.4), /* Increased shadow depth */
-                0 0 30px var(--color-accent-yellow); /* Yellow glow on hover */
+    box-shadow: 0 12px 45px rgba(119, 101, 227, 0.6), /* Increased shadow depth with glass tint */
+                0 0 30px var(--color-accent-yellow); /* Highlight glow on hover */
 }
 
 
 /* --- Glass Input Field Component --- */
 .ui-input {
-    background: rgba(68, 53, 91, 0.15); /* Subtle tint for inputs */
+    background: rgba(119, 101, 227, 0.15); /* Subtle tint for inputs */
     backdrop-filter: blur(var(--blur-level-light));
     border: none;
     padding: 14px 20px;
@@ -139,7 +137,7 @@ hr {
 /* Focus state enhancement */
 .ui-input:focus {
     outline: none;
-    background: rgba(68, 53, 91, 0.25); /* More opaque on focus */
+    background: rgba(119, 101, 227, 0.25); /* More opaque on focus */
     box-shadow: 0 0 0 4px var(--color-accent-orange); /* Focus ring using action color */
 }
 
@@ -149,7 +147,7 @@ hr {
 /* --- Primary Call to Action Button --- */
 .btn-primary {
     /* Gradient for visual impact */
-    background: linear-gradient(120deg, var(--color-accent-yellow), #f7a82b); 
+    background: linear-gradient(120deg, var(--color-accent-yellow), #b8a39f); 
     color: var(--color-deepest-bg); /* Dark text for contrast */
     border: none;
     padding: 15px 40px;
@@ -164,14 +162,15 @@ hr {
 
 .btn-primary:hover {
     transform: translateY(-4px) scale(1.02); /* Subtle lift and scale */
-    box-shadow: 0 10px 35px rgba(234, 167, 24, 0.6); 
+    box-shadow: 0 10px 35px rgba(234, 167, 24, 0.8); /* Stronger shadow glow on hover */
 }
 
 /* Micro-interaction: Physical button press feedback */
 .btn-primary:active {
     transform: translateY(0) scale(0.98); 
-    box-shadow: 0 4px 15px rgba(234, 167, 24, 0.4); /* Shrinks the shadow */
+    box-shadow: 0 4px 15px rgba(234, 167, 24, 0.6); /* Shrinks the shadow */
 }
+
 /* --- Secondary Button (Subtle Glass Interaction) --- */
 .btn-secondary {
     background: var(--color-glass-tint); /* Uses the primary purple tint */
@@ -186,7 +185,7 @@ hr {
 
 /* Hover state for secondary glass button */
 .btn-secondary:hover {
-    background: #5e497d; /* Slightly lighter shade of the purple tint */
+    background: #9a86d5; /* Slightly lighter shade of the purple tint */
     border-color: rgba(255, 255, 255, 0.5);
     transform: scale(1.03);
 }
