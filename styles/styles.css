@@ -16,6 +16,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    scrollbar-color: var(--color-glass-tint) rgba(0,0,0,0);
 }
 
 html {
