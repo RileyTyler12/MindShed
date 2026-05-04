@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <title>MindShed</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧠MindShed🛖</h1>
+            <p id="randomTagline"></p>
+            <script>
+                //Display a random tagline on page load.
+                let tagElement = document.getElementById("randomTagline");
+                let taglines = ["Your place to think it out.", "Here to help your mind.", "The little shed of thought."]
+                let randomNum = Math.floor(Math.random() * (Math.floor(taglines.length) - Math.ceil(0)) + Math.ceil(0)); //Get random integer between 0 and the length of taglines[]
+                console.log("Random Tagline Num: " + randomNum);
+
+                tagElement.textContent = taglines[randomNum];
+            </script>
+
+            <nav id="navbar">
+                <script defer type="module" src="scripts/contentSwitcher.js"></script>
+
+                <button class="btn-secondary" onclick="changeContent('welcome')">Welcome</button>
+                <script>
+                    //if user has done onboarding, show the other button options.
+                    if (localStorage.getItem("mindshed-userInfo") !== null) {
+                        document.getElementById("navbar").innerHTML += "<button class=\"btn-secondary\" onclick=\"changeContent('todoList')\">To-Do List</button>"
+                    }
+                </script>
+                <button class="btn-secondary" onclick="changeContent('about')">About</button>
+            </nav>
+        </header>
+        <br>
+        <main>
+            <div class="ui-card">
+                <div id="dashboard"></div>
+            </div>
+        </main>
+        <footer>
+            <p>©️ Riley Tyler 2021</p>
+        </footer>
+    </div>
+</body>
+</html>
