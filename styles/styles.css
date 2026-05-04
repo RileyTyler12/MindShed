@@ -41,7 +41,7 @@ body {
     --color-dark-base: #c8adc0;  /* Main structural color (Muted Grey/Mauve) */
     --color-glass-tint: #7765e3; /* Purple tint for glass elements (Lavender) */
     --color-accent-yellow: #edd3c4; /* Accent 1 (Highlight - Light Beige) */
-    --color-accent-orange: #3b60e4;/* Accent 2 (Call to Action - Vibrant Blue) */
+    --color-accent-blue: #3b60e4; /* Accent 2 (Call to Action - Vibrant Blue) */
 
     /* Design System Tokens */
     --radius-soft: 20px;       /* Default rounded corners */
@@ -139,7 +139,7 @@ hr {
 .ui-input:focus {
     outline: none;
     background: rgba(119, 101, 227, 0.25); /* More opaque on focus */
-    box-shadow: 0 0 0 4px var(--color-accent-orange); /* Focus ring using action color */
+    box-shadow: 0 0 0 4px var(--color-accent-blue); /* Focus ring using action color */
 }
 
 
