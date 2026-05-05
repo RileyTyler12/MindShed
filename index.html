@@ -25,14 +25,14 @@
             <nav id="navbar">
                 <script defer type="module" src="scripts/contentSwitcher.js"></script>
 
-                <button class="btn-secondary" onclick="changeContent('welcome')">Welcome</button>
+                <button class="btn-secondary" id="welcome-button" onclick="changeContent('welcome')">Welcome</button>
                 <script>
                     //if user has done onboarding, show the other button options.
                     if (localStorage.getItem("mindshed-userInfo") !== null) {
-                        document.getElementById("navbar").innerHTML += "<button class=\"btn-secondary\" onclick=\"changeContent('todoList')\">To-Do List</button><button class=\"btn-secondary\" onclick=\"changeContent('journal')\">Journal</button>"
+                        document.getElementById("navbar").innerHTML += "<button class=\"btn-secondary\" id=\"todoList-button\" onclick=\"changeContent('todoList')\">To-Do List</button><button class=\"btn-secondary\" id=\"journal-button\" onclick=\"changeContent('journal')\">Journal</button>"
                     }
                 </script>
-                <button class="btn-secondary" onclick="changeContent('about')">About</button>
+                <button class="btn-secondary" id="about-button" onclick="changeContent('about')">About</button>
             </nav>
         </header>
         <br>

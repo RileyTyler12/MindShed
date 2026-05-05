@@ -27,7 +27,10 @@ async function changeContent(contentName) {
                     //add helper scripts to html.
                     welcomeContent.addHelpers(dashboardContainer);
 
+                    //Set currentContent global and call setActiveButton function on button to show its the active section. (plays an anim)
+                    setActiveButton(contentName);
                     currentContent = contentName;
+                    
                     break;
                 case "todoList":
                     dashboardContainer.innerHTML = await todoListContent.getContent();//Get todoList content and display it in the dashboard.
@@ -35,7 +38,10 @@ async function changeContent(contentName) {
                     //add helper scripts to html.
                     todoListContent.addHelpers(dashboardContainer);
 
+                    //Set currentContent global and call setActiveButton function on button to show its the active section. (plays an anim)
+                    setActiveButton(contentName);
                     currentContent = contentName;
+
                     break;
                 case "journal":
                     dashboardContainer.innerHTML = await journalContent.getContent();//Get journal content and display it in the dashboard.
@@ -43,11 +49,18 @@ async function changeContent(contentName) {
                     //add helper scripts to html.
                     journalContent.addHelpers(dashboardContainer);
 
+                    //Set currentContent global and call setActiveButton function on button to show its the active section. (plays an anim)
+                    setActiveButton(contentName);
                     currentContent = contentName;
+                    
                     break;
                 case "about":
                     dashboardContainer.innerHTML = await aboutContent.getContent();//Get about content and display it in the dashboard.
+
+                    //Set currentContent global and call setActiveButton function on button to show its the active section. (plays an anim)
+                    setActiveButton(contentName);
                     currentContent = contentName;
+                    
                     break;
                 default:
                     dashboardContainer.innerHTML = '<p>There was an error getting the content.</p>';
@@ -70,6 +83,19 @@ async function changeContent(contentName) {
 function savePreviouslyUsedContentSection() {
     localStorage.setItem("mindshed-previousContentSection", currentContent);
     console.log("Last used content section saved to local storage.")
+}
+
+function setActiveButton(contentName) {
+    //Remove heartbeat anim class from old active button if currentContent has been previously set.
+    if (currentContent) {
+        if (document.getElementById(currentContent + "-button").classList.contains("heartbeat")) {
+            document.getElementById(currentContent + "-button").classList.toggle("heartbeat");
+        }
+    }
+    //Add the class to the new active button if it doesn't already have it (just in case.)
+    if (!document.getElementById(contentName + "-button").classList.contains("heartbeat")) {
+        document.getElementById(contentName + "-button").classList.toggle("heartbeat");
+    }
 }
 
 //Page Init
