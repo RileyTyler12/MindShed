@@ -80,6 +80,10 @@ hr {
     border: 1px solid var(--color-dark-base);
 }
 
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
 /* Utility class to center content */
 .container {
     width: 90%;
