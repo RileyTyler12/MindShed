@@ -1,7 +1,8 @@
 
     if (localStorage.getItem("mindshed-userInfo") !== null) {
-        let savedInfo = JSON.parse(localStorage.getItem("mindshed-userInfo"));
-        document.getElementById("onboarding").innerHTML = "Hello " + savedInfo.name + ". Welcome back!"
+        userInfo = JSON.parse(localStorage.getItem("mindshed-userInfo"));
+        document.getElementById("onboarding").innerHTML = "Hello " + userInfo.name + ". Welcome back!";
+        displayAvatarImage();
     }
     else {
         userInfo = {
@@ -24,6 +25,20 @@
             localStorage.setItem("mindshed-userInfo", JSON.stringify(userInfo));
             location.reload();
         }
+    }
+
+    function displayAvatarImage() { //get avatar from RoboHash
+        const input = userInfo.name + userInfo.age;
+        const img = document.createElement('img');
+        const url = `https://robohash.org/${input}?size=200x200&set=set4`;
+        console.log(url);
+        fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            img.src = URL.createObjectURL(blob);
+            document.getElementById("dashboard").appendChild(img);
+        });
+        document.getElementById("dashboard").innerHTML += "<p>Avatars lovingly delivered by Robohash.org</p>";
     }
 
     if (document.getElementById("enterButton")) {
