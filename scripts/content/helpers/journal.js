@@ -65,7 +65,7 @@ function refreshListDisplay() {
                 let itemNum = this.id.replace("item-", ""); //use item id to get item index num
                 console.log(itemNum);
 
-                //now mark complete, save, and refresh.
+                //delete journal entry data, save, and refresh.
                 journal.itemStrings.splice(itemNum, 1);
                 journal.itemStats.splice(itemNum, 1);
                 journal.itemDates.splice(itemNum, 1);
