@@ -213,6 +213,7 @@ hr {
 .listItem-container p {
     overflow: auto; /* Allows scrolling if content is too long */
     overflow-wrap: break-word;
+    margin: auto;
 }
 
 .listItem-date {
