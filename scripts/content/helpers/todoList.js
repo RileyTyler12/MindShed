@@ -31,10 +31,13 @@ function refreshListDisplay() {
     //Set incomplete items first
     let incompleteList = document.getElementById("list-incomplete");
     incompleteList.innerHTML = "";
+    let animDelay = 0.0; //Init animDelay variable, will be used to enhance look and feel.
     for (let i = 0; i < todoList.itemStrings.length; i++) {
         if (todoList.itemStats[i] === "incomplete") {
             let listItemContainer = document.createElement("div");
             listItemContainer.className = "listItem-container";
+            animDelay += 0.2;
+            listItemContainer.style.animationDelay = animDelay + "s";
 
             let itemText = document.createElement("p");
             itemText.className = "listItem-text";
@@ -63,10 +66,14 @@ function refreshListDisplay() {
     //Now display complete items
     let completeList = document.getElementById("list-complete");
     completeList.innerHTML = "";
+    animDelay = 0.0; //reset animDelay variable
     for (let i = 0; i < todoList.itemStrings.length; i++) {
         if (todoList.itemStats[i] === "complete") {
             let listItemContainer = document.createElement("div");
             listItemContainer.className = "listItem-container";
+            //Animation delay for look and feel
+            animDelay += 0.2;
+            listItemContainer.style.animationDelay = animDelay + "s";
 
             let itemText = document.createElement("p");
             itemText.className = "listItem-text"

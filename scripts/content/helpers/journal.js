@@ -37,10 +37,15 @@ function refreshListDisplay() {
     //Set incomplete items first
     let journalList = document.getElementById("journal-main-container");
     journalList.innerHTML = "";
+    let animDelay = 0.0; //Init animDelay variable, will be used to enhance look and feel.
     for (let i = 0; i < journal.itemStrings.length; i++) {
         if (journal.itemStats[i] === "incomplete") {
             let listItemContainer = document.createElement("div");
             listItemContainer.className = "listItem-container";
+            animDelay += 0.2;
+            listItemContainer.style.animationDelay = animDelay + "s";
+
+
             let listItemButtonsContainer = document.createElement("div");
             listItemButtonsContainer.className = "listItem-buttons-container";
 

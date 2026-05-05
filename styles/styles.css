@@ -206,8 +206,10 @@ hr {
     border-radius: 10px;
     margin: 2%;
     padding: 2%;
+    opacity: 0%;
     /* Entrance animation for dynamically loaded items. Use JS to control delay */
     animation: listItemFadeIn 0.5s ease-out; 
+    animation-fill-mode: forwards;
 }
 
 .listItem-container p {
