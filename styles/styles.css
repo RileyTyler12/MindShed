@@ -197,10 +197,10 @@ hr {
 }
 
 
-/* Styles for to-do list items */
+/* Styles for to-do and journal list items */
 .listItem-container {
     display: flex;
-    justify-content: right; /* Aligns content to the right */
+    justify-content: left; /* Aligns content to the right */
     align-items: center;
     border: 2px solid var(--color-dark-base);
     border-radius: 10px;
@@ -213,6 +213,16 @@ hr {
 .listItem-container p {
     overflow: auto; /* Allows scrolling if content is too long */
     overflow-wrap: break-word;
+}
+
+.listItem-date {
+    color: var(--color-deepest-bg);
+    font-size: 0.75em;
+    background-color: var(--color-dark-base);
+    border: 2px solid var(--color-dark-base);
+    border-radius: 10px;
+    margin: 2%;
+    padding: 2%;
 }
 
 #todoList-main-container {

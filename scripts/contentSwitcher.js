@@ -4,6 +4,7 @@
 //Import Modules
 import { welcomeContent } from './content/dashboard_welcome.js';
 import { todoListContent } from './content/dashboard_todoList.js';
+import { journalContent } from './content/dashboard_journal.js';
 import { aboutContent } from './content/dashboard_about.js';
 
 //Setup variables
@@ -33,6 +34,14 @@ async function changeContent(contentName) {
                     
                     //add helper scripts to html.
                     todoListContent.addHelpers(dashboardContainer);
+
+                    currentContent = contentName;
+                    break;
+                case "journal":
+                    dashboardContainer.innerHTML = await journalContent.getContent();//Get journal content and display it in the dashboard.
+                    
+                    //add helper scripts to html.
+                    journalContent.addHelpers(dashboardContainer);
 
                     currentContent = contentName;
                     break;

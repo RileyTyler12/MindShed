@@ -37,7 +37,7 @@ function refreshListDisplay() {
             listItemContainer.className = "listItem-container";
 
             let itemText = document.createElement("p");
-            itemText.className = "listItem-text"
+            itemText.className = "listItem-text";
             itemText.textContent = todoList.itemStrings[i];
 
             let itemButton = document.createElement("button");
@@ -54,8 +54,8 @@ function refreshListDisplay() {
                 refreshListDisplay();
             });
 
-            listItemContainer.appendChild(itemText);
             listItemContainer.appendChild(itemButton);
+            listItemContainer.appendChild(itemText);
             incompleteList.appendChild(listItemContainer)
         }
     }
@@ -104,10 +104,10 @@ function refreshListDisplay() {
                 refreshListDisplay();
             });
 
-            listItemContainer.appendChild(itemText);
             itemButtonsDiv.appendChild(itemButton);
             itemButtonsDiv.appendChild(itemDeleteButton);
             listItemContainer.appendChild(itemButtonsDiv);
+            listItemContainer.appendChild(itemText);
             completeList.appendChild(listItemContainer)
         }
     }

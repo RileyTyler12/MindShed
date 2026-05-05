@@ -29,7 +29,7 @@
                 <script>
                     //if user has done onboarding, show the other button options.
                     if (localStorage.getItem("mindshed-userInfo") !== null) {
-                        document.getElementById("navbar").innerHTML += "<button class=\"btn-secondary\" onclick=\"changeContent('todoList')\">To-Do List</button>"
+                        document.getElementById("navbar").innerHTML += "<button class=\"btn-secondary\" onclick=\"changeContent('todoList')\">To-Do List</button><button class=\"btn-secondary\" onclick=\"changeContent('journal')\">Journal</button>"
                     }
                 </script>
                 <button class="btn-secondary" onclick="changeContent('about')">About</button>
