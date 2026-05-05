@@ -70,10 +70,10 @@ body {
 }
 
 header {
-    position: sticky;
+    /*position: sticky;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1000;*/
 }
 
 hr {
@@ -86,7 +86,7 @@ button {
 
 /* Utility class to center content */
 .container {
-    max-width: 90%;
+    width: 90%;
     /*max-width: 1200px;*/
 }
 
@@ -96,6 +96,7 @@ button {
 /* --- Main Glass Container / Card Component --- */
 .ui-card {
     /* Core Glassmorphism Formula */
+    display: inline-block;
     background: rgba(40, 30, 34, 0.2); /* Semi-transparent base color */
     backdrop-filter: blur(var(--blur-level-strong));
     -webkit-backdrop-filter: blur(var(--blur-level-strong));
@@ -114,6 +115,7 @@ button {
 
     text-align: center;
     padding: 1%;
+    margin: 1%;
     overflow: auto;
     max-height: 60vh;
 }
