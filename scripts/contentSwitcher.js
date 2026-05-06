@@ -98,8 +98,33 @@ function setActiveButton(contentName) {
     }
 }
 
-//Page Init
+function toggleTheme() {
+    let htmlElement = document.getElementById("html-element");
+    let themeButton = document.getElementById("theme-button");
+
+    htmlElement.classList.toggle("light-mode");
+    //Save
+    if (htmlElement.classList.contains("light-mode")) {
+        themeButton.innerHTML = "🌞";
+        localStorage.setItem("mindshed-theme", "light");
+    }
+    else {
+        themeButton.innerHTML = "🌚";
+        localStorage.setItem("mindshed-theme", "dark");
+    }
+}
+
+function loadSavedTheme() {
+    if (localStorage.getItem("mindshed-theme") !== null) { //Only load if there is a saved theme
+        if (localStorage.getItem("mindshed-theme") === "light") {
+            toggleTheme()
+        }
+    }
+}
+
+//Page Init Functions
 window.changeContent = changeContent;
+window.toggleTheme = toggleTheme;
 
 if (localStorage.getItem("mindshed-previousContentSection") !== null) {
     changeContent(localStorage.getItem("mindshed-previousContentSection"));
@@ -108,3 +133,6 @@ else {
     //Open welcome content to start
     changeContent("welcome");
 }
+
+//Load saved theme
+loadSavedTheme();

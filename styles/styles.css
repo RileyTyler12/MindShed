@@ -36,12 +36,13 @@ body {
 
 /* Configuration & Theming (Variables) */
 :root {
-    /* Color Palette based on coolors.co/edd3c4-c8adc0-7765e3-3b60e4-080708 */
+    /* --- Dark Mode Variables (Default) --- */
     --color-deepest-bg: #080708; /* Primary background/Shadow base (Near Black) */
     --color-dark-base: #c8adc0;  /* Main structural color (Muted Grey/Mauve) */
-    --color-glass-tint: #7765e3; /* Purple tint for glass elements (Lavender) */
+    --color-glass-tint: rgba(119, 101, 227, 0.5); /* Purple tint for glass elements (Lavender) */
     --color-accent-yellow: #edd3c4; /* Accent 1 (Highlight - Light Beige) */
     --color-accent-blue: #3b60e4; /* Accent 2 (Call to Action - Vibrant Blue) */
+    --color-text-light: #e4e7eb;   /* Default text color for dark mode */
 
     /* Design System Tokens */
     --radius-soft: 20px;       /* Default rounded corners */
@@ -52,10 +53,20 @@ body {
     --transition-speed: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
+html.light-mode {
+    /* --- Light Mode Overrides --- */
+    --color-deepest-bg: #f3f4f6; /* Very light grey background */
+    --color-dark-base: #e5e7eb;  /* Lighter structural color */
+    --color-glass-tint: rgba(119, 101, 227, 0.5); /* Subtle tint for glass elements in light mode */
+    --color-accent-yellow: #fcd34d; /* Brighter yellow accent in light mode */
+    --color-accent-blue: #2563eb;  /* More saturated blue in light mode */
+    --color-text-light: #1f2937;   /* Dark text color for light mode */
+}
+
 /* Base Layout & Typography */
 body {
     background-color: var(--color-deepest-bg);
-    color: #e4e7eb; /* Retaining original light text color for contrast */
+    color: var(--color-text-light);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -187,7 +198,7 @@ button {
 /* --- Secondary Button (Subtle Glass Interaction) --- */
 .btn-secondary {
     background: var(--color-glass-tint); /* Uses the primary purple tint */
-    color: #ffffff;
+    color: var(--color-text-light);
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 12px 30px;
     margin: 2%;
