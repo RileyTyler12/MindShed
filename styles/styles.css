@@ -69,13 +69,6 @@ body {
         radial-gradient(circle at bottom right, rgba(60, 96, 228, 0.04), transparent 60%); /* Blue accent for subtle lift */
 }
 
-header {
-    position: sticky;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
 hr {
     border: 1px solid var(--color-dark-base);
 }
@@ -91,6 +84,13 @@ button {
 }
 
 /* Nav Bar Stylings */
+#navMenu-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
 #navbar-button {
     display: block;
     margin: auto;
