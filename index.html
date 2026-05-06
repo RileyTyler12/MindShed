@@ -50,7 +50,7 @@
                                 }
                                 document.getElementById("navbar").classList.toggle("slide-out-top");
                             }
-                            
+                            document.getElementById("navbar-button").disabled = false;
                         }
 
                     </script>
@@ -59,6 +59,10 @@
             </nav>
             <br>
             <button class="btn-secondary" id="navbar-button" onclick="toggleNavbar()">☰</button>
+            <script>
+                let initalNavToggleTimer = setTimeout(toggleNavbar, 2000); //Creates a timer to call toggleNavbar() for inital nav menu anim
+                document.getElementById("navbar-button").disabled = true; //Prevent user from toggling button just yet.
+            </script>
         </div>
         <br>
         <main>

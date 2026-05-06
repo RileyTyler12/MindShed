@@ -89,6 +89,7 @@ button {
     top: 0;
     width: 100%;
     z-index: 1000;
+    max-height: 30dvh;
 }
 
 #navbar-button {
@@ -123,7 +124,7 @@ button {
     padding: 1%;
     margin: 1%;
     overflow: auto;
-    max-height: 60vh;
+    max-height: 60dvh;
 }
 
 .ui-card:hover {
