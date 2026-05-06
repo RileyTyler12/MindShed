@@ -27,17 +27,37 @@
             </script>
 
             <nav id="navbar" class="ui-card">
-                <script defer type="module" src="scripts/contentSwitcher.js"></script>
+                <div id="main-nav-buttons">
+                    <script defer type="module" src="scripts/contentSwitcher.js"></script>
 
-                <button class="btn-secondary" id="welcome-button" onclick="changeContent('welcome')">Welcome</button>
-                <script>
-                    //if user has done onboarding, show the other button options.
-                    if (localStorage.getItem("mindshed-userInfo") !== null) {
-                        document.getElementById("navbar").innerHTML += "<button class=\"btn-secondary\" id=\"todoList-button\" onclick=\"changeContent('todoList')\">To-Do List</button><button class=\"btn-secondary\" id=\"journal-button\" onclick=\"changeContent('journal')\">Journal</button>"
-                    }
-                </script>
-                <button class="btn-secondary" id="about-button" onclick="changeContent('about')">About</button>
+                    <button class="btn-secondary" id="welcome-button" onclick="changeContent('welcome')">Welcome</button>
+                    <script>
+                        //If user has done onboarding, show the other button options.
+                        if (localStorage.getItem("mindshed-userInfo") !== null) {
+                            document.getElementById("main-nav-buttons").innerHTML += "<button class=\"btn-secondary\" id=\"todoList-button\" onclick=\"changeContent('todoList')\">To-Do List</button><button class=\"btn-secondary\" id=\"journal-button\" onclick=\"changeContent('journal')\">Journal</button>"
+                        }
+
+                        //Function to toggle nav bar
+                        function toggleNavbar() {
+                            if (document.getElementById("navbar").classList.contains("slide-out-top")) {
+                                document.getElementById("navbar").classList.toggle("slide-in-top");
+                                document.getElementById("navbar").classList.toggle("slide-out-top")
+                            }
+                            else {
+                                if (document.getElementById("navbar").classList.contains("slide-in-top")) {
+                                    document.getElementById("navbar").classList.toggle("slide-in-top");
+                                }
+                                document.getElementById("navbar").classList.toggle("slide-out-top");
+                            }
+                            
+                        }
+
+                    </script>
+                    <button class="btn-secondary" id="about-button" onclick="changeContent('about')">About</button>
+                </div>
             </nav>
+            <br>
+            <button class="btn-secondary" id="navbar-button" onclick="toggleNavbar()">☰</button>
         </header>
         <br>
         <main>
