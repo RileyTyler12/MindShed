@@ -170,7 +170,7 @@ else {
 loadSavedTheme();
 
 //Show on load notifications (such as message of the day or something)
-sendNotification("Welcome back!");
+sendNotification("New Updates! Streaks and Me-Points!");
 
 setTimeout(() => {
     sendNotification("Write in the journal or complete to-dos to earn me-points.");
