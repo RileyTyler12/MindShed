@@ -38,7 +38,7 @@
     }
 
     function displayAvatarImage() { //get avatar from RoboHash
-        const input = userInfo.name + userInfo.age;
+        const input = userInfo.name + userInfo.age + "Day" + userInfo.streakDays;
         const img = document.createElement('img');
         const url = `https://robohash.org/${input}?size=200x200&set=set4`;
         console.log(url);
