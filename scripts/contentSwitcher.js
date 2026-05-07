@@ -57,6 +57,9 @@ async function changeContent(contentName) {
                 case "about":
                     dashboardContainer.innerHTML = await aboutContent.getContent();//Get about content and display it in the dashboard.
 
+                    //add helper scripts to html.
+                    aboutContent.addHelpers(dashboardContainer);
+
                     //Set currentContent global and call setActiveButton function on button to show its the active section. (plays an anim)
                     setActiveButton(contentName);
                     currentContent = contentName;

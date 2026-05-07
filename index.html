@@ -72,6 +72,7 @@
             <br>
             <button class="btn-secondary" id="navbar-button" onclick="toggleNavbar()">☰</button>
             <script>
+                //Play starting navbar anim
                 let initalNavToggleTimer = setTimeout(toggleNavbar, 2000); //Creates a timer to call toggleNavbar() for inital nav menu anim
                 document.getElementById("navbar-button").disabled = true; //Prevent user from toggling button just yet.
             </script>
@@ -86,7 +87,20 @@
 
         <footer>
             <p>©️ ReopDev 2026</p>
-            <p>V0.3.0</p>
+            <p id="version">0.3.0</p>
+            <script>
+                // As of version 0.3.0, big feature changes such as userSettings and userInfo have been implemented. From now on, version string will be saved to local storage. As a patch, any saved information before the update will be deleted.
+                if (localStorage.getItem("mindshed-version") === null) {
+                    for (let i = localStorage.length - 1; i >= 0; i--) {
+                        const key = localStorage.key(i);
+                        if (key && key.startsWith('mindshed-')) {
+                            localStorage.removeItem(key);
+                        }
+                    }
+                }
+                let version = document.getElementById("version").textContent;
+                localStorage.setItem("mindshed-version", version);
+            </script>
         </footer>
     </div>
 </body>
