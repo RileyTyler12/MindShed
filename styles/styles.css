@@ -176,6 +176,21 @@ button {
     box-shadow: 0 0 0 4px var(--color-accent-blue); /* Focus ring using action color */
 }
 
+/* Notifications */
+#notification-container {
+	background-color: var(--color-glass-tint);
+	max-height: 0dvh;
+	padding: 12px;
+	border-radius: 6px;
+	box-shadow: 0 12px 45px rgba(119, 101, 227, 0.6), /* Increased shadow depth with glass tint */
+                0 0 30px var(--color-accent-yellow); /* Highlight glow on hover */
+	animation-fill-mode: forwards;
+	position: sticky;
+    top: 0;
+    max-width: 100%;
+    z-index: 1001;
+}
+
 
 /* Interactive Elements (Buttons) */
 
@@ -254,7 +269,7 @@ button {
 }
 
 .listItem-date {
-    color: var(--color-deepest-bg);
+    color: var(--color-text-light);
     font-size: 0.75em;
     background-color: var(--color-dark-base);
     border: 2px solid var(--color-dark-base);
@@ -368,12 +383,13 @@ button {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
+	visibility: visible;
   }
   100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
     opacity: 1;
-    max-height: 60vh;
+    max-height: 60dvh;
   }
 }
 @keyframes slide-in-top {
@@ -381,12 +397,13 @@ button {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
+	visibility: visible;
   }
   100% {
     -webkit-transform: translateY(0);
             transform: translateY(0);
     opacity: 1;
-    max-height: 60vh;
+    max-height: 60dvh;
   }
 }
 .slide-in-top {
@@ -408,7 +425,7 @@ button {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
-    max-height: 0vh;
+    max-height: 0dvh;
     display: none;
   }
 }
@@ -422,7 +439,7 @@ button {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
-    max-height: 0vh;
+    max-height: 0dvh;
     display: none;
   }
 }

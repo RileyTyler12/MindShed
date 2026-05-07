@@ -98,6 +98,8 @@ function setActiveButton(contentName) {
     }
 }
 
+// Theme Functions
+
 function toggleTheme() {
     let htmlElement = document.getElementById("html-element");
     let themeButton = document.getElementById("theme-button");
@@ -122,6 +124,36 @@ function loadSavedTheme() {
     }
 }
 
+/**
+ * Awards points and updates the streak based on an action completion.
+ * @param {string} message - Points to award for the action.
+ */
+function sendNotification(message) {
+    let notificationContainer = document.getElementById("notification-container");
+    let messageElement = document.createElement("p");
+    messageElement.textContent = message;
+    notificationContainer.innerHTML = "";
+    notificationContainer.appendChild(messageElement);
+    toggleNotificationDisplay();
+
+    //Hide after 5 seconds
+    setTimeout(toggleNotificationDisplay, 10000);
+}
+
+function toggleNotificationDisplay() {
+    let notificationContainer = document.getElementById("notification-container");
+    if (notificationContainer.classList.contains("slide-in-top")) {
+        notificationContainer.classList.toggle("slide-out-top");
+        notificationContainer.classList.toggle("slide-in-top")
+    }
+    else {
+        if (notificationContainer.classList.contains("slide-out-top")) {
+            notificationContainer.classList.toggle("slide-out-top");
+        }
+        notificationContainer.classList.toggle("slide-in-top");
+    }
+}
+
 //Page Init Functions
 window.changeContent = changeContent;
 window.toggleTheme = toggleTheme;
@@ -136,3 +168,10 @@ else {
 
 //Load saved theme
 loadSavedTheme();
+
+//Show on load notifications (such as message of the day or something)
+sendNotification("Welcome back!");
+
+setTimeout(() => {
+    sendNotification("Write in the journal or complete to-dos to earn me-points.");
+}, 15000);
