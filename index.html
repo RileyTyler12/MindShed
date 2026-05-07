@@ -97,6 +97,7 @@
                             localStorage.removeItem(key);
                         }
                     }
+                    location.reload();
                 }
                 let version = document.getElementById("version").textContent;
                 localStorage.setItem("mindshed-version", version);
