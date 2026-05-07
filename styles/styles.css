@@ -108,6 +108,17 @@ button {
     margin: auto;
 }
 
+/* Streak Panel */
+#streak-panel {
+	position: absolute;
+    top: 0;
+	right: 0;
+    max-width: 100%;
+    z-index: 1000;
+    max-height: 30dvh;
+	background-color: var(--color-glass-tint);
+}
+
 
 /* General UI Components (Glass Elements) */
 

@@ -12,9 +12,9 @@ export const welcomeContent = {
     },
 
     addHelpers(element) {
-        //add helper scripts to html.
-        const onboardUserScript = document.createElement('script');
-        onboardUserScript.src = "scripts/content/helpers/onboardUser.js";
-        element.appendChild(onboardUserScript);
+        //add user settings helper script to html.
+        const userSettingsScript = document.createElement('script');
+        userSettingsScript.src = "scripts/content/helpers/userSettings.js";
+        element.appendChild(userSettingsScript);
     }
 };

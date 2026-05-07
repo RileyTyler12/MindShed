@@ -12,7 +12,12 @@ export const todoListContent = {
     },
 
     addHelpers(element) {
-        //add helper scripts to html.
+        //add user settings helper script to html.
+        const userSettingsScript = document.createElement('script');
+        userSettingsScript.src = "scripts/content/helpers/userSettings.js";
+        element.appendChild(userSettingsScript);
+
+        //add additional helper scripts to html.
         const todoListScript = document.createElement('script');
         todoListScript.src = "scripts/content/helpers/todoList.js";
         element.appendChild(todoListScript);

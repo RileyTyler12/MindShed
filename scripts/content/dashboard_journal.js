@@ -12,7 +12,12 @@ export const journalContent = {
     },
 
     addHelpers(element) {
-        //add helper scripts to html.
+        //add user settings helper script to html.
+        const userSettingsScript = document.createElement('script');
+        userSettingsScript.src = "scripts/content/helpers/userSettings.js";
+        element.appendChild(userSettingsScript);
+        
+        //add additional helper scripts to html.
         const journalScript = document.createElement('script');
         journalScript.src = "scripts/content/helpers/journal.js";
         element.appendChild(journalScript);

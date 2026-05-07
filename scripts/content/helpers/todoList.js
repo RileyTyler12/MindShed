@@ -51,8 +51,9 @@ function refreshListDisplay() {
                 let itemNum = this.id.replace("item-", ""); //use item id to get item index num
                 console.log(itemNum);
 
-                //now mark complete, save, and refresh.
+                // Mark complete and update user stats (points/streak).
                 todoList.itemStats[itemNum] = "complete";
+                awardPointsAndUpdateStreak(10);
                 saveList();
                 refreshListDisplay();
             });

@@ -17,15 +17,16 @@ function addJournalItem() {
     if (itemInput) {
         journal.itemStrings.push(itemInput);
         journal.itemStats.push("incomplete"); // mostly unused for now but may be used to filter journal entries.
-        //Get date for journal entry
+        // Record action and award points (25) for a new journal entry.
+        awardPointsAndUpdateStreak(25);
         let date = new Date();
         journal.itemDates.push(date.toLocaleString());
         console.log("item added to journal object.")  
 
-        //save list object
+        // save list object
         saveList();
         
-        //refresh list display
+        // refresh list display
         refreshListDisplay();
     }
     else {
