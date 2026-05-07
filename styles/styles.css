@@ -354,6 +354,10 @@ button {
 	-webkit-animation: heartbeat 3s ease-in-out infinite both;
 	        animation: heartbeat 3s ease-in-out infinite both;
 }
+.heartbeat-slow {
+	-webkit-animation: heartbeat 6s ease-in-out infinite both;
+	        animation: heartbeat 6s ease-in-out infinite both;
+}
 /**
  * ----------------------------------------
  * animation slide-in-top

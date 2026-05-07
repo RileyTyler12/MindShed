@@ -125,9 +125,11 @@
         // Update UI display for streak and points
         if (newDay || (today === lastActionDate)) {
             streakElement.innerHTML = userInfo.streakDays + "🔥";
+            streakElement.classList.add("heartbeat-slow");
         }
         else {
             streakElement.innerHTML = userInfo.streakDays + "❄️";
+            streakElement.classList.add("heartbeat");
         }
         mePointsElement.innerHTML = userInfo.points;
     }
