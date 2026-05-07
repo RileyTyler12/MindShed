@@ -39,11 +39,11 @@
                 <div id="main-nav-buttons">
                     <script defer type="module" src="scripts/contentSwitcher.js"></script>
 
-                    <button class="btn-secondary" id="welcome-button" onclick="changeContent('welcome')">Welcome</button>
+                    <button class="btn-secondary" id="welcome-button" onclick="changeContent('welcome'), toggleNavbar()">Welcome</button>
                     <script>
                         //If user has done onboarding, show the other button options.
                         if (localStorage.getItem("mindshed-userInfo") !== null) {
-                            document.getElementById("main-nav-buttons").innerHTML += "<button class=\"btn-secondary\" id=\"todoList-button\" onclick=\"changeContent('todoList')\">To-Do List</button><button class=\"btn-secondary\" id=\"journal-button\" onclick=\"changeContent('journal')\">Journal</button>"
+                            document.getElementById("main-nav-buttons").innerHTML += "<button class=\"btn-secondary\" id=\"todoList-button\" onclick=\"changeContent('todoList'), toggleNavbar()\">To-Do List</button><button class=\"btn-secondary\" id=\"journal-button\" onclick=\"changeContent('journal'), toggleNavbar()\">Journal</button>"
                         }
 
                         //Function to toggle nav bar
@@ -62,7 +62,7 @@
                         }
 
                     </script>
-                    <button class="btn-secondary" id="about-button" onclick="changeContent('about')">About</button>
+                    <button class="btn-secondary" id="about-button" onclick="changeContent('about'), toggleNavbar()">About</button>
                     <button class="btn-secondary" id="theme-button" onclick="toggleTheme()">🌚</button>
                 </div>
             </nav>
