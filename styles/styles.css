@@ -115,7 +115,7 @@ button {
 	right: 0;
     max-width: 100%;
     z-index: 1000;
-    max-height: 20dvh;
+    max-height: 30dvh;
 	background-color: var(--color-glass-tint);
 }
 
