@@ -115,7 +115,7 @@ button {
 	right: 0;
     max-width: 100%;
     z-index: 1000;
-    max-height: 30dvh;
+    max-height: 20dvh;
 	background-color: var(--color-glass-tint);
 }
 
@@ -178,13 +178,16 @@ button {
 
 /* Notifications */
 #notification-container {
+    display: inline-block;
 	background-color: var(--color-glass-tint);
-	max-height: 0dvh;
 	padding: 12px;
+    margin: 1%;
+    border: 1px solid rgba(119, 101, 227, 0.25);
 	border-radius: 6px;
 	box-shadow: 0 12px 45px rgba(119, 101, 227, 0.6), /* Increased shadow depth with glass tint */
-                0 0 30px var(--color-accent-yellow); /* Highlight glow on hover */
+                0 0 30px var(--color-accent-yellow); /* Highlight glow */
 	animation-fill-mode: forwards;
+    transition: all var(--transition-speed) ease-out; 
 	position: sticky;
     top: 0;
     max-width: 100%;
@@ -383,7 +386,9 @@ button {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
+    position: sticky;
 	visibility: visible;
+    max-height: 0dvh;
   }
   100% {
     -webkit-transform: translateY(0);
@@ -397,7 +402,9 @@ button {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
+    position: sticky;
 	visibility: visible;
+    max-height: 0dvh;
   }
   100% {
     -webkit-transform: translateY(0);
@@ -420,13 +427,18 @@ button {
     -webkit-transform: translateY(0);
             transform: translateY(0);
     opacity: 1;
+    max-height: 60dvh;
+  }
+  99% {
+    position: sticky;
   }
   100% {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
     max-height: 0dvh;
-    display: none;
+    visibility: collapse;
+    position: fixed;
   }
 }
 @keyframes slide-out-top {
@@ -434,13 +446,18 @@ button {
     -webkit-transform: translateY(0);
             transform: translateY(0);
     opacity: 1;
+    max-height: 60dvh;
+  }
+  99% {
+    position: sticky;
   }
   100% {
     -webkit-transform: translateY(-1000px);
             transform: translateY(-1000px);
     opacity: 0;
     max-height: 0dvh;
-    display: none;
+    visibility: collapse;
+    position: fixed;
   }
 }
 .slide-out-top {
