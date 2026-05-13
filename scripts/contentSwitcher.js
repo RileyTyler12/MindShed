@@ -131,12 +131,26 @@ function loadSavedTheme() {
  * Awards points and updates the streak based on an action completion.
  * @param {string} message - Points to award for the action.
  */
-function sendNotification(message) {
+function sendNotification(message, buttonText, pageName) {
     let notificationContainer = document.getElementById("notification-container");
     let messageElement = document.createElement("p");
+    let buttonElement = document.createElement("button");
     messageElement.textContent = message;
+    //If button and page parameters are included, add them to the notification
+    if (buttonText !== null) {
+        buttonElement.classList.toggle("btn-secondary");
+        buttonElement.textContent = buttonText;
+        buttonElement.addEventListener("click", function(event) {
+            if (pageName !== null) {
+                changeContent(pageName);
+            }
+        });
+    }
     notificationContainer.innerHTML = "";
     notificationContainer.appendChild(messageElement);
+    if (buttonElement.textContent !== "") {
+        notificationContainer.appendChild(buttonElement);
+    }
     toggleNotificationDisplay();
 
     //Hide after 5 seconds
@@ -147,7 +161,7 @@ function toggleNotificationDisplay() {
     let notificationContainer = document.getElementById("notification-container");
     if (notificationContainer.classList.contains("slide-in-top")) {
         notificationContainer.classList.toggle("slide-out-top");
-        notificationContainer.classList.toggle("slide-in-top")
+        notificationContainer.classList.toggle("slide-in-top");
     }
     else {
         if (notificationContainer.classList.contains("slide-out-top")) {
@@ -173,8 +187,10 @@ else {
 loadSavedTheme();
 
 //Show on load notifications (such as message of the day or something)
-sendNotification("New Updates! Streaks and Me-Points!");
+sendNotification("New features coming soon!");
 
-setTimeout(() => {
-    sendNotification("Write in the journal or complete to-dos to earn me-points.");
-}, 15000);
+if (localStorage.getItem("mindshed-userInfo") !== null) {
+    setTimeout(() => {
+        sendNotification("Add to your journal or complete to-dos to earn me-points and continue your daily streak.", "Go to Journal", "journal");
+    }, 15000);
+}
