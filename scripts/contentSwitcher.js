@@ -200,7 +200,7 @@ else {
 loadSavedTheme();
 
 //Show on load notifications (such as message of the day or something)
-sendNotification("New features coming soon!");
+sendNotification("New themes! Change up the style a bit with some new looks with even more to come!");
 
 if (localStorage.getItem("mindshed-userInfo") !== null) {
     setTimeout(() => {
