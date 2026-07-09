@@ -103,29 +103,42 @@ function setActiveButton(contentName) {
 
 // Theme Functions
 
-function toggleTheme() {
+function setTheme(themeName) {
     let htmlElement = document.getElementById("html-element");
     let themeButton = document.getElementById("theme-button");
 
-    htmlElement.classList.toggle("light-mode");
-    //Save
-    if (htmlElement.classList.contains("light-mode")) {
-        themeButton.innerHTML = "🌞";
-        localStorage.setItem("mindshed-theme", "light");
+    // Remove other themes if present
+    htmlElement.classList.remove("theme-light");
+    htmlElement.classList.remove("theme-retro");
+    htmlElement.classList.remove("theme-mint");
+    htmlElement.classList.remove("theme-cute");
+
+    // Apply the selected theme class (dark is default, no class needed)
+    if (themeName !== "dark") {
+        htmlElement.classList.add(`theme-${themeName}`);
     }
-    else {
-        themeButton.innerHTML = "🌚";
-        localStorage.setItem("mindshed-theme", "dark");
-    }
+
+    // Save to localStorage
+    localStorage.setItem("mindshed-theme", themeName);
+
+    // Update theme button icon based on selected theme
+    const themeIcons = {
+        dark: "🌚",
+        light: "🌞",
+        retro: "🎬",
+        mint: "🍃",
+        cute: "🌸"
+    };
+    themeButton.innerHTML = themeIcons[themeName] || "🌚";
 }
 
 function loadSavedTheme() {
-    if (localStorage.getItem("mindshed-theme") !== null) { //Only load if there is a saved theme
-        if (localStorage.getItem("mindshed-theme") === "light") {
-            toggleTheme()
-        }
+    const savedTheme = localStorage.getItem("mindshed-theme");
+    if (savedTheme && savedTheme !== "dark") { // Only apply if not already dark
+        setTheme(savedTheme);
     }
 }
+
 
 /**
  * Awards points and updates the streak based on an action completion.
@@ -173,7 +186,7 @@ function toggleNotificationDisplay() {
 
 //Page Init Functions
 window.changeContent = changeContent;
-window.toggleTheme = toggleTheme;
+window.setTheme = setTheme;
 
 if (localStorage.getItem("mindshed-previousContentSection") !== null) {
     changeContent(localStorage.getItem("mindshed-previousContentSection"));

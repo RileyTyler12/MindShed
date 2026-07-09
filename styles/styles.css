@@ -53,7 +53,7 @@ body {
     --transition-speed: 0.4s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-html.light-mode {
+.theme-light {
     /* --- Light Mode Overrides --- */
     --color-deepest-bg: #f3f4f6; /* Very light grey background */
     --color-dark-base: #e5e7eb;  /* Lighter structural color */
@@ -62,6 +62,74 @@ html.light-mode {
     --color-accent-blue: #2563eb;  /* More saturated blue in light mode */
     --color-text-light: #1f2937;   /* Dark text color for light mode */
 }
+
+/* --- Theme Dropdown Container (shown when theme-button is clicked) --- */
+#theme-dropdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 100%;
+    animation: fadeInSlideUp 0.3s ease-out forwards;
+    top: calc(100% - 1px);
+    z-index: 9999;
+}
+
+/* Dropdown positioning and appearance */
+#theme-dropdown-container:hover {
+    box-shadow: 0 12px 45px rgba(119, 101, 227, 0.6),
+                0 0 30px var(--color-accent-yellow);
+}
+
+/* Hidden state for the dropdown */
+.theme-dropdown.hidden {
+    display: none !important;
+}
+
+/* Individual theme buttons */
+#theme-dropdown-container button {
+    margin-bottom: 1%;
+    text-align: center;
+}
+
+
+/* Retro Theme Colors */
+.theme-retro {
+    --color-deepest-bg: #2d1b0e; /* Deep amber/brown base */
+    --color-dark-base: #ffb74d;   /* Warm orange accent */
+    --color-glass-tint: rgba(255, 180, 90, 0.3); /* Muted amber tint */
+    --color-accent-yellow: #ffcc80; /* Creamy highlight */
+    --color-accent-blue: #f57c00;  /* Vibrant orange-red */
+    --color-text-light: #fff5e6;   /* Off-white text */
+}
+
+/* Mint Theme Colors */
+.theme-mint {
+    --color-deepest-bg: #1a2e1e; /* Deep forest green base */
+    --color-dark-base: #84cee0;   /* Soft teal accent */
+    --color-glass-tint: rgba(132, 206, 224, 0.3); /* Fresh mint tint */
+    --color-accent-yellow: #a5d6b7; /* Pale green highlight */
+    --color-accent-blue: #2dd4bf;  /* Vibrant mint blue */
+    --color-text-light: #e8f5e9;   /* Off-green text */
+}
+
+/* Cute Theme Colors */
+.theme-cute {
+    --color-deepest-bg: #fff0f5; /* Soft pink base */
+    --color-dark-base: #dcb8b8;   /* Mauve accent */
+    --color-glass-tint: rgba(255, 165, 199, 0.3); /* Pastel pink tint */
+    --color-accent-yellow: #ffdab9; /* Peach highlight */
+    --color-accent-blue: #b8d4e3;  /* Sky blue */
+    --color-text-light: #6a4a5a;   /* Muted mauve text */
+}
+
+/* Apply theme class to html element */
+html.theme-retro,
+html.theme-mint,
+html.theme-cute {
+    background-color: var(--color-deepest-bg);
+    color: var(--color-text-light);
+}
+
 
 /* Base Layout & Typography */
 body {

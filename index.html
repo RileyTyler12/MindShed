@@ -66,9 +66,29 @@
 
                     </script>
                     <button class="btn-secondary" id="about-button" onclick="changeContent('about'), toggleNavbar()">About</button>
-                    <button class="btn-secondary" id="theme-button" onclick="toggleTheme()">🌚</button>
+
+                    <script>
+                        //Toggle theme dropdown visibility
+                        function toggleThemeDropdown() {
+                            let dropdown = document.getElementById("theme-dropdown-container");
+                            if (dropdown.classList.contains("hidden")) {
+                                dropdown.classList.toggle("hidden");
+                            }
+                            else {
+                                dropdown.classList.toggle("hidden");
+                            }
+                        }
+                    </script>
+                    <button class="btn-secondary" id="theme-button" onclick="toggleThemeDropdown()">🌚</button>
                 </div>
             </nav>
+            <div id="theme-dropdown-container" class="ui-card theme-dropdown hidden" style="display: block;">
+                <button class="btn-secondary theme-dropdown-item" onclick="setTheme('dark'); toggleThemeDropdown()">🌚 Dark</button>
+                <button class="btn-secondary theme-dropdown-item" onclick="setTheme('light'); toggleThemeDropdown()">🌞 Light</button>
+                <button class="btn-secondary theme-dropdown-item" onclick="setTheme('retro'); toggleThemeDropdown()">🎬 Retro</button>
+                <button class="btn-secondary theme-dropdown-item" onclick="setTheme('mint'); toggleThemeDropdown()">🍃 Mint</button>
+                <button class="btn-secondary theme-dropdown-item" onclick="setTheme('cute'); toggleThemeDropdown()">🌸 Cute</button>
+            </div>
             <button class="btn-secondary" id="navbar-button" onclick="toggleNavbar()">☰</button>
             <script>
                 //Play starting navbar anim
