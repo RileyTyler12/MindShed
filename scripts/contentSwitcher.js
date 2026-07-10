@@ -112,6 +112,9 @@ function setTheme(themeName) {
     htmlElement.classList.remove("theme-retro");
     htmlElement.classList.remove("theme-mint");
     htmlElement.classList.remove("theme-cute");
+    htmlElement.classList.remove("theme-starry");
+    htmlElement.classList.remove("theme-icy");
+    htmlElement.classList.remove("theme-fire");
 
     // Apply the selected theme class (dark is default, no class needed)
     if (themeName !== "dark") {
@@ -127,7 +130,10 @@ function setTheme(themeName) {
         light: "🌞",
         retro: "🎬",
         mint: "🍃",
-        cute: "🌸"
+        cute: "🌸",
+        starry: "🌌",
+        icy: "❄️",
+        fire: "🔥"
     };
     themeButton.innerHTML = themeIcons[themeName] || "🌚";
 }

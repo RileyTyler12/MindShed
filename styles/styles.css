@@ -122,12 +122,156 @@ body {
     --color-text-light: #6a4a5a;   /* Muted mauve text */
 }
 
+/* Starry Theme Colors */
+.theme-starry {
+    --color-deepest-bg: #0a0e15; /* Cosmic black - deep space darkness */
+    --color-dark-base: #1a2332;  /* Nebula purple-grey */
+    --color-glass-tint: rgba(99, 102, 241, 0.35); /* Violet nebula mist */
+    --color-accent-yellow: #fcd34d; /* Starlight gold - bright celestial glow */
+    --color-accent-blue: #8b5cf6;  /* Indigo starlight - deep cosmic violet */
+    --color-text-light: #e2e8f0;   /* Moonlit white - soft lunar glow */
+}
+
+/* Icy Theme Colors */
+.theme-icy {
+    --color-deepest-bg: #0f172a; /* Polar black - deep frozen darkness */
+    --color-dark-base: #94a3b8;  /* Silver frost - metallic ice tones */
+    --color-glass-tint: rgba(165, 180, 252, 0.3); /* Azure glacial mist */
+    --color-accent-yellow: #fef08a; /* Sunlight through ice - warm glow */
+    --color-accent-blue: #06b6d4;  /* Ice cyan - frozen aquamarine */
+    --color-text-light: #f1f5f9;   /* Glacier white - bright frosty light */
+}
+/* Fire Theme Colors */
+.theme-fire {
+    --color-deepest-bg: #2a0a0a; /* Ember black - deep coals base */
+    --color-dark-base: #f97316;  /* Blaze orange - fiery heart */
+    --color-glass-tint: rgba(249, 115, 22, 0.35); /* Amber ember glow */
+    --color-accent-yellow: #fef08a; /* Molten gold - intense flame core */
+    --color-accent-blue: #ef4444;  /* Inferno red - burning rage */
+    --color-text-light: #fed7aa;   /* Ash pink - warm ember glow */
+}
+
+/* Icy Theme Colors */
+.theme-icy {
+    --color-deepest-bg: #f0f9ff; /* Very light blue */
+    --color-dark-base: #7dd3fc;  /* Sky blue */
+    --color-glass-tint: rgba(14, 165, 233, 0.3); /* Cyan tint */
+    --color-accent-yellow: #fef08a; /* Yellow */
+    --color-accent-blue: #0284c7;  /* Blue */
+    --color-text-light: #ffffff;  /* Dark blue */
+}
+
+/* Fire Theme Colors */
+.theme-fire {
+    --color-deepest-bg: #450a0a; /* Deep red */
+    --color-dark-base: #991b1b;  /* Red */
+    --color-glass-tint: rgba(153, 27, 27, 0.3); /* Dark red tint */
+    --color-accent-yellow: #fbbf24; /* Amber */
+    --color-accent-blue: #7f1d1d;  /* Dark red */
+    --color-text-light: #fecaca;  /* Light red */
+}
+
 /* Apply theme class to html element */
 html.theme-retro,
 html.theme-mint,
-html.theme-cute {
+html.theme-cute,
+html.theme-starry,
+html.theme-icy,
+html.theme-fire {
     background-color: var(--color-deepest-bg);
     color: var(--color-text-light);
+}
+
+/* Animated Backgrounds for New Themes */
+html.theme-starry body {
+    background-image: 
+        radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 70% 80%, rgba(168, 85, 247, 0.1), transparent 40%),
+        conic-gradient(from 0deg, 
+            #0a0e15 0deg, 
+            #1a2332 60deg, 
+            #0f172a 120deg, 
+            #1a2332 180deg, 
+            #0a0e15 240deg, 
+            #1a2332 300deg, 
+            #0a0e15 360deg
+        ) !important;
+    background-size: 400% 400% !important;
+    animation: starryTwinkle 12s ease-in-out infinite !important;
+}
+
+@keyframes starryTwinkle {
+    0% { 
+        background-position: 0% 0%;
+        opacity: 1;
+    }
+    50% { 
+        background-position: 25% 0%;
+        opacity: 0.8;
+    }
+    100% { 
+        background-position: 0% 0%;
+        opacity: 1;
+    }
+}
+
+html.theme-icy body {
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(165, 220, 255, 0.2), transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(219, 234, 254, 0.25), transparent 40%),
+        conic-gradient(from 0deg, 
+            #0a1628 0deg, 
+            #1e3a5f 60deg, 
+            #0d9488 120deg, 
+            #1e3a5f 180deg, 
+            #0a1628 240deg, 
+            #1e3a5f 300deg, 
+            #0a1628 360deg
+        ) !important;
+    background-size: 400% 400% !important;
+    animation: icyFlow 18s ease infinite !important;
+}
+
+html.theme-fire body {
+    background-image: 
+        radial-gradient(circle at 60% 25%, rgba(251, 146, 60, 0.18), transparent 35%),
+        radial-gradient(circle at 30% 75%, rgba(234, 179, 8, 0.15), transparent 35%),
+        conic-gradient(from 0deg, 
+            #2a0a0a 0deg, 
+            #7f1d1d 60deg, 
+            #f97316 120deg, 
+            #ea580c 180deg, 
+            #7f1d1d 240deg, 
+            #2a0a0a 300deg, 
+            #2a0a0a 360deg
+        ) !important;
+    background-size: 400% 400% !important;
+    animation: fieryDance 7s ease-in-out infinite !important;
+}
+
+@keyframes fieryDance {
+    0% { 
+        background-position: 0% 0%;
+        filter: brightness(1);
+    }
+    40% { 
+        background-position: 0% 10%;
+        filter: brightness(1.15) saturate(1.2);
+    }
+    60% { 
+        background-position: 0% 25%;
+        filter: brightness(0.95) saturate(0.9);
+    }
+    100% { 
+        background-position: 0% 0%;
+        filter: brightness(1);
+    }
+}
+
+@keyframes icyFlow {
+    0% { background-position: 50% 0%; }
+    50% { background-position: 50% 100%; }
+    100% { background-position: 50% 0%; }
 }
 
 
