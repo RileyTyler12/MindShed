@@ -173,7 +173,7 @@ function sendNotification(message, buttonText, pageName) {
     toggleNotificationDisplay();
 
     //Hide after 5 seconds
-    setTimeout(toggleNotificationDisplay, 10000);
+    setTimeout(toggleNotificationDisplay, 5000);
 }
 
 function toggleNotificationDisplay() {
@@ -210,6 +210,12 @@ sendNotification("Even more new themes have been added!");
 
 if (localStorage.getItem("mindshed-userInfo") !== null) {
     setTimeout(() => {
-        sendNotification("Add to your journal or complete to-dos to earn me-points and continue your daily streak.", "Go to Journal", "journal");
-    }, 15000);
+        const messages = [
+            "Add to your journal or complete to-dos to earn me-points and continue your daily streak.",
+            "Keep up the great progress! Your consistency is earning rewards.",
+            "Your dedication inspires. Keep pushing forward!"
+        ];
+        const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+        sendNotification(randomMessage, "Go to Journal", "journal");
+    }, 7000);
 }
