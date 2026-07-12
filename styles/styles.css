@@ -91,6 +91,11 @@ body {
     text-align: center;
 }
 
+/* Theme button fixes */
+#theme-button {
+    padding: 1em;
+}
+
 
 /* Retro Theme Colors */
 .theme-retro {
@@ -130,25 +135,6 @@ body {
     --color-accent-yellow: #fcd34d; /* Starlight gold - bright celestial glow */
     --color-accent-blue: #8b5cf6;  /* Indigo starlight - deep cosmic violet */
     --color-text-light: #e2e8f0;   /* Moonlit white - soft lunar glow */
-}
-
-/* Icy Theme Colors */
-.theme-icy {
-    --color-deepest-bg: #0f172a; /* Polar black - deep frozen darkness */
-    --color-dark-base: #94a3b8;  /* Silver frost - metallic ice tones */
-    --color-glass-tint: rgba(165, 180, 252, 0.3); /* Azure glacial mist */
-    --color-accent-yellow: #fef08a; /* Sunlight through ice - warm glow */
-    --color-accent-blue: #06b6d4;  /* Ice cyan - frozen aquamarine */
-    --color-text-light: #f1f5f9;   /* Glacier white - bright frosty light */
-}
-/* Fire Theme Colors */
-.theme-fire {
-    --color-deepest-bg: #2a0a0a; /* Ember black - deep coals base */
-    --color-dark-base: #f97316;  /* Blaze orange - fiery heart */
-    --color-glass-tint: rgba(249, 115, 22, 0.35); /* Amber ember glow */
-    --color-accent-yellow: #fef08a; /* Molten gold - intense flame core */
-    --color-accent-blue: #ef4444;  /* Inferno red - burning rage */
-    --color-text-light: #fed7aa;   /* Ash pink - warm ember glow */
 }
 
 /* Icy Theme Colors */
@@ -303,7 +289,6 @@ button {
 /* Utility class to center content */
 .container {
     width: 90%;
-    /*max-width: 1200px;*/
 }
 
 /* Nav Bar Stylings */
