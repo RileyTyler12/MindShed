@@ -17,6 +17,7 @@
 *::after {
     box-sizing: border-box;
     scrollbar-color: var(--color-glass-tint) rgba(0,0,0,0);
+    scrollbar-width: auto;
 }
 
 html {
@@ -94,6 +95,7 @@ body {
 /* Theme button fixes */
 #theme-button {
     padding: 1em;
+    margin: 1%;
 }
 
 
