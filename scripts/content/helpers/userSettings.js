@@ -149,6 +149,34 @@
     }
 
 
+/**
+ * Migration system for handling version updates without data loss.
+ * Called on page load to detect version changes and preserve existing localStorage data.
+ * @param {string} currentVersion - The app's current version string (e.g., "0.5.0").
+ */
+function migrateDataIfNeeded(currentVersion) {
+    const savedVersion = localStorage.getItem("mindshed-version");
+    
+    if (savedVersion === null || savedVersion !== currentVersion) {
+        console.log(`[Migration] Version changed from ${savedVersion} → ${currentVersion}`);
+        
+        // Log existing data keys for debugging/auditing purposes
+        const existingKeys = [];
+        for (let i = 0; i < localStorage.length; i++) {
+            existingKeys.push(localStorage.key(i));
+        }
+        console.log(`[Migration] Existing data keys: ${existingKeys.join(', ')}`);
+        
+        // Update the stored version to current
+        localStorage.setItem("mindshed-version", currentVersion);
+        
+        console.log(`[Migration] Data preserved successfully.`);
+    } else {
+        console.log(`[Migration] No update needed (version already ${currentVersion}).`);
+    }
+}
+
+
 // Theme Functions
 
 function setTheme(themeName) {
@@ -219,3 +247,5 @@ function toggleThemeDropdown() {
 
 //Load saved theme
 loadSavedTheme();
+
+migrateDataIfNeeded(document.getElementById('version').textContent);
