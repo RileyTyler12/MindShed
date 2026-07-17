@@ -1,0 +1,21 @@
+<p>MindShed is a self-help/productivity management app focused on helping the user make the most out of their time and day using various tools.</p>
+<p>Everything is fully offline and saved to your browser's localStorage.</p>
+
+<h1>Settings</h1>
+<hr>
+<div id="settings">
+    <div>
+        <h2>Themes</h2>
+        <button class="btn-secondary" id="theme-button" onclick="toggleThemeDropdown()">🌚</button>
+        <div id="theme-dropdown-container" class="ui-card theme-dropdown hidden" style="display: block;">
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('dark'); toggleThemeDropdown()">🌚 Dark</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('light'); toggleThemeDropdown()">🌞 Light</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('retro'); toggleThemeDropdown()">🎬 Retro</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('mint'); toggleThemeDropdown()">🍃 Mint</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('cute'); toggleThemeDropdown()">🌸 Cute</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('starry'); toggleThemeDropdown()">🌌 Starry</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('icy'); toggleThemeDropdown()">❄️ Icy</button>
+            <button class="btn-secondary theme-dropdown-item" onclick="setTheme('fire'); toggleThemeDropdown()">🔥 Fire/Lava</button>
+        </div>
+    </div>
+</div>

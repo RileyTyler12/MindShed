@@ -1,10 +1,10 @@
 "use strict";
 //Written by Riley Tyler
 
-//aboutContent object
-export const aboutContent = {
+//settingsContent object
+export const settingsContent = {
     async getContent() {
-        const response = await fetch('scripts/content/html/about.html');
+        const response = await fetch('scripts/content/html/settings.html');
         const data = await response.text(); 
         
         console.log(data); 

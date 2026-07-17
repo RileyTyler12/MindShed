@@ -5,7 +5,7 @@
 import { welcomeContent } from './content/dashboard_welcome.js';
 import { todoListContent } from './content/dashboard_todoList.js';
 import { journalContent } from './content/dashboard_journal.js';
-import { aboutContent } from './content/dashboard_about.js';
+import { settingsContent } from './content/dashboard_settings.js';
 
 //Setup variables
 let currentContent = "";
@@ -54,11 +54,11 @@ async function changeContent(contentName) {
                     currentContent = contentName;
                     
                     break;
-                case "about":
-                    dashboardContainer.innerHTML = await aboutContent.getContent();//Get about content and display it in the dashboard.
+                case "settings":
+                    dashboardContainer.innerHTML = await settingsContent.getContent();//Get settings content and display it in the dashboard.
 
                     //add helper scripts to html.
-                    aboutContent.addHelpers(dashboardContainer);
+                    settingsContent.addHelpers(dashboardContainer);
 
                     //Set currentContent global and call setActiveButton function on button to show its the active section. (plays an anim)
                     setActiveButton(contentName);
@@ -98,50 +98,6 @@ function setActiveButton(contentName) {
     //Add the class to the new active button if it doesn't already have it (just in case.)
     if (!document.getElementById(contentName + "-button").classList.contains("heartbeat")) {
         document.getElementById(contentName + "-button").classList.toggle("heartbeat");
-    }
-}
-
-// Theme Functions
-
-function setTheme(themeName) {
-    let htmlElement = document.getElementById("html-element");
-    let themeButton = document.getElementById("theme-button");
-
-    // Remove other themes if present
-    htmlElement.classList.remove("theme-light");
-    htmlElement.classList.remove("theme-retro");
-    htmlElement.classList.remove("theme-mint");
-    htmlElement.classList.remove("theme-cute");
-    htmlElement.classList.remove("theme-starry");
-    htmlElement.classList.remove("theme-icy");
-    htmlElement.classList.remove("theme-fire");
-
-    // Apply the selected theme class (dark is default, no class needed)
-    if (themeName !== "dark") {
-        htmlElement.classList.add(`theme-${themeName}`);
-    }
-
-    // Save to localStorage
-    localStorage.setItem("mindshed-theme", themeName);
-
-    // Update theme button icon based on selected theme
-    const themeIcons = {
-        dark: "🌚",
-        light: "🌞",
-        retro: "🎬",
-        mint: "🍃",
-        cute: "🌸",
-        starry: "🌌",
-        icy: "❄️",
-        fire: "🔥"
-    };
-    themeButton.innerHTML = themeIcons[themeName] || "🌚";
-}
-
-function loadSavedTheme() {
-    const savedTheme = localStorage.getItem("mindshed-theme");
-    if (savedTheme && savedTheme !== "dark") { // Only apply if not already dark
-        setTheme(savedTheme);
     }
 }
 
@@ -192,7 +148,6 @@ function toggleNotificationDisplay() {
 
 //Page Init Functions
 window.changeContent = changeContent;
-window.setTheme = setTheme;
 
 if (localStorage.getItem("mindshed-previousContentSection") !== null) {
     changeContent(localStorage.getItem("mindshed-previousContentSection"));
@@ -201,9 +156,6 @@ else {
     //Open welcome content to start
     changeContent("welcome");
 }
-
-//Load saved theme
-loadSavedTheme();
 
 //Show on load notifications (such as message of the day or something)
 sendNotification("Even more new themes have been added!");

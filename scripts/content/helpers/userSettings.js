@@ -1,4 +1,5 @@
 
+    //Create or load core userInfo
     if (localStorage.getItem("mindshed-userInfo") !== null) {
         userInfo = JSON.parse(localStorage.getItem("mindshed-userInfo"));
         if (document.getElementById("onboarding") !== null) {
@@ -20,6 +21,8 @@
             lastActionDate: null
         };
     }
+
+    //Functions
 
     function submitOnboarding() {
         let name = document.getElementById("name").value;
@@ -144,3 +147,75 @@
             return false;
         }
     }
+
+
+// Theme Functions
+
+function setTheme(themeName) {
+    let htmlElement = document.getElementById("html-element");
+
+    // Remove other themes if present
+    htmlElement.classList.remove("theme-light");
+    htmlElement.classList.remove("theme-retro");
+    htmlElement.classList.remove("theme-mint");
+    htmlElement.classList.remove("theme-cute");
+    htmlElement.classList.remove("theme-starry");
+    htmlElement.classList.remove("theme-icy");
+    htmlElement.classList.remove("theme-fire");
+
+    // Apply the selected theme class (dark is default, no class needed)
+    if (themeName !== "dark") {
+        htmlElement.classList.add(`theme-${themeName}`);
+    }
+
+    // Save to localStorage
+    localStorage.setItem("mindshed-theme", themeName);
+
+    // Set Global currentTheme variable, mind not be used for now though.
+    currentTheme = themeName;
+
+    updateThemeToggleIcon(themeName);
+}
+
+function updateThemeToggleIcon(themeName) {
+    // Update theme button icon based on selected theme
+    let themeButton = document.getElementById("theme-button");
+    if (themeButton !== null) {
+        const themeIcons = {
+            dark: "🌚",
+            light: "🌞",
+            retro: "🎬",
+            mint: "🍃",
+            cute: "🌸",
+            starry: "🌌",
+            icy: "❄️",
+            fire: "🔥"
+        };
+        themeButton.innerHTML = themeIcons[themeName] || "🌚";
+    }
+}
+
+function loadSavedTheme() {
+    const savedTheme = localStorage.getItem("mindshed-theme");
+    if (savedTheme && savedTheme !== "dark") { // Only apply if not already dark
+        setTheme(savedTheme);
+    }
+}
+
+//Toggle theme dropdown visibility
+function toggleThemeDropdown() {
+    let dropdown = document.getElementById("theme-dropdown-container");
+    if (dropdown.classList.contains("hidden")) {
+        dropdown.classList.toggle("hidden");
+    }
+    else {
+        dropdown.classList.toggle("hidden");
+    }
+}
+
+//
+// Init 
+//
+
+//Load saved theme
+loadSavedTheme();
