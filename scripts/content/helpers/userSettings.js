@@ -230,6 +230,78 @@ function loadSavedTheme() {
     }
 }
 
+/**
+ * Exports all MindShed data to a downloadable JSON file.
+ * Collects all localStorage items starting with "mindshed-" and creates a backup file.
+ */
+function exportData() {
+    try {
+        // Collect all MindShed-related data
+        const backupData = {};
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith("mindshed-")) {
+                backupData[key] = localStorage.getItem(key);
+            }
+        }
+
+        // Create download link
+        const timestamp = new Date().toISOString().split('T')[0];
+        const filename = `mindshed-backup-${timestamp}.json`;
+        const blob = new Blob([JSON.stringify(backupData, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        // Show success notification
+        alert("Data exported successfully!");
+    } catch (error) {
+        console.error("Export failed:", error);
+        alert("Export failed. Check console for details.");
+    }
+}
+
+/**
+ * Deletes all MindShed data from localStorage.
+ * Requires user confirmation to prevent accidental data loss.
+ */
+function deleteAllData() {
+    // Show confirmation dialog
+    const confirmed = window.confirm(
+        "⚠️ WARNING: This will permanently delete ALL your MindShed data including:\n" +
+        "- User profile\n" +
+        "- All journal entries\n" +
+        "- All to-do items\n" +
+        "- Theme preferences\n\n" +
+        "Are you sure you want to proceed? This action cannot be undone."
+    );
+
+    if (!confirmed) {
+        return; // User cancelled
+    }
+
+    try {
+        // Delete all MindShed-related localStorage items
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith("mindshed-")) {
+                localStorage.removeItem(key);
+            }
+        }
+
+        // Reload page to reset application state
+        location.reload();
+    } catch (error) {
+        console.error("Delete failed:", error);
+        alert("Delete failed. Check console for details.");
+    }
+}
+
 //Toggle theme dropdown visibility
 function toggleThemeDropdown() {
     let dropdown = document.getElementById("theme-dropdown-container");
