@@ -5,3 +5,7 @@ memory-bank/progress.md
 memory-bank/projectbrief.md
 memory-bank/systemPatterns.md
 memory-bank/techContext.md
+node_modules
+.roo
+AGENTS.md
+package-lock.json

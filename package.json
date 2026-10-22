@@ -1,0 +1,39 @@
+{
+  "name": "mindshed",
+  "version": "1.0.0",
+  "description": "A personal journal and task management app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "dist": "electron-builder --publish never"
+  },
+  "author": "coolr",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^30.0.0",
+    "electron-builder": "^24.9.1"
+  },
+  "build": {
+    "appId": "com.mindshed.app",
+    "icon": "android-chrome-512x512.png",
+    "files": [
+      "index.html",
+      "*.png",
+      "*.ico",
+      "*.webmanifest",
+      "styles/**/*",
+      "themes/**/*",
+      "scripts/**/*",
+      "main.js"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  }
+}
