@@ -2,6 +2,7 @@
 
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const debugMode = true;
 
 function createWindow() {
   const mainWindow = new BrowserWindow({
@@ -18,8 +19,11 @@ function createWindow() {
   // Load the index.html file from the current directory
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 
-  // Optional: Remove the default menu bar
-  // mainWindow.setMenuBarVisibility(false);
+  // Debug Mode Toggles
+  if (debugMode == false) {
+    mainWindow.setMenuBarVisibility(false);
+  }
+  
 
   mainWindow.on('closed', function () {
     mainWindow.destroy();
