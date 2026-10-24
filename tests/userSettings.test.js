@@ -10,6 +10,7 @@ beforeEach(() => {
 });
 
 describe('userSettings.js', () => {
+  // Tests the core logic for awarding points and maintaining streaks based on action dates
   describe('awardPointsAndUpdateStreak', () => {
     it('awards points and starts a streak on the first action', () => {
       const info = window.userInfo;
@@ -64,6 +65,7 @@ describe('userSettings.js', () => {
     });
   });
 
+  // Verifies that the app version is updated in localStorage without losing existing data
   describe('migrateDataIfNeeded', () => {
     it('updates the stored version when it differs from the current version', () => {
       // On load the script auto-runs migrateDataIfNeeded('0.5.0'),
@@ -84,6 +86,7 @@ describe('userSettings.js', () => {
     });
   });
 
+  // Ensures theme classes are correctly applied to the DOM and persisted in localStorage
   describe('setTheme', () => {
     it('applies the theme class and saves it to localStorage', () => {
       const el = document.getElementById('html-element');

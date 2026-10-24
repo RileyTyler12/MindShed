@@ -11,6 +11,7 @@ beforeEach(() => {
 });
 
 describe('journal.js', () => {
+  // Verifies that adding a journal entry awards 25 points and persists the entry
   it('adds a journal entry, awards 25 points, and saves it', () => {
     document.getElementById('journal-input').value = 'Today was a good day';
 
@@ -25,6 +26,7 @@ describe('journal.js', () => {
     expect(saved.itemStrings).toContain('Today was a good day');
   });
 
+  // Ensures that empty journal inputs are ignored
   it('ignores an empty journal input', () => {
     document.getElementById('journal-input').value = '';
 
@@ -34,6 +36,7 @@ describe('journal.js', () => {
     expect(window.userInfo.points).toBe(0);
   });
 
+  // Verifies that the journal entry is correctly rendered in the DOM
   it('renders the entry into the journal main container', () => {
     document.getElementById('journal-input').value = 'First entry';
     window.addJournalItem();
@@ -46,6 +49,7 @@ describe('journal.js', () => {
     expect(text.textContent).toBe('First entry');
   });
 
+  // Verifies that journal entries can be removed from the list
   it('deletes a journal entry', () => {
     document.getElementById('journal-input').value = 'Delete me';
     window.addJournalItem();

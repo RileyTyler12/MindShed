@@ -11,6 +11,7 @@ beforeEach(() => {
 });
 
 describe('todoList.js', () => {
+  // Verifies that new to-do items are correctly added to the list and persisted in localStorage
   it('adds a new to-do item to the list and saves it', () => {
     document.getElementById('todo-input').value = 'Buy groceries';
 
@@ -24,6 +25,7 @@ describe('todoList.js', () => {
     expect(saved.itemStrings).toContain('Buy groceries');
   });
 
+  // Ensures that empty inputs do not create new to-do items
   it('ignores an empty to-do input', () => {
     document.getElementById('todo-input').value = '';
 
@@ -32,6 +34,7 @@ describe('todoList.js', () => {
     expect(window.todoList.itemStrings).toHaveLength(0);
   });
 
+  // Verifies that marking a to-do as complete awards 10 points and updates the list state
   it('marks a to-do complete, awards 10 points, and saves', () => {
     document.getElementById('todo-input').value = 'Write report';
     window.addTodoListItem();
@@ -46,6 +49,7 @@ describe('todoList.js', () => {
     expect(saved.itemStats[0]).toBe('complete');
   });
 
+  // Verifies that completed to-do items can be removed from the list
   it('deletes a completed to-do item', () => {
     document.getElementById('todo-input').value = 'Delete me';
     window.addTodoListItem();
