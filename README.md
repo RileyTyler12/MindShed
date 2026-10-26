@@ -2,17 +2,23 @@ MindShed is a self-help/productivity/fun app focused on helping the user make th
 Everything is fully offline and saved to your browser's localStorage.
 This project will evolve over time.
 
-## Electron Build Instructions
+## Features
+- **Todo list** — add and complete tasks; each completed task earns 10 me-points.
+- **Journal** — write entries; each entry earns 25 me-points.
+- **Me-points & streak** — point totals and a daily streak, shown in the header.
+- **Themes** — light, retro, mint, cute, starry, icy, fire (dark is the default).
+- **Onboarding** — first-run setup that unlocks the todo/journal/settings nav.
 
-To run the app in development mode:
-1. Install dependencies:
-   `npm install`
-2. Start the app:
-   `npm start`
+## Running
+1. Install dependencies: `npm install`
+2. Run in development: `npm start`
 
+## Testing
+- `npm test` — run all tests (vitest, jsdom)
+- `npm run test:watch` — vitest in watch mode
+- Single file: `npx vitest run tests/userSettings.test.js`
+
+## Building
 To build the production executable for Windows:
-1. Install dependencies:
-   `npm install`
-2. Build the app:
-   `npm run build`
-   This will generate an installer in the `dist/` directory.
+1. `npm install`
+2. `npm run build` — generates an installer in the `dist/` directory.
